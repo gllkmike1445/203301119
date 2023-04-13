@@ -36,7 +36,7 @@ class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
           SalomonBottomBarItem(
             icon: Icon(Icons.chat),
             title: Text(
-              "Shobetler",
+              "Sohbetler",
               style: TextStyle(color: Colors.black),
             ),
             selectedColor: Color(0xFFFFC600),
