@@ -46,23 +46,23 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFC600),
-        title: Text(
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text(
           "Mikail Yusuf Güllük",
           style: TextStyle(color: Colors.black),
         ),
-        actions: <Widget>[
+        actions: [
           IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onPressed: () {},
           ),
         ],
       ),
       body: Column(
-        children: <Widget>[
+        children: [
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               reverse: true,
               itemCount: messages.length,
               itemBuilder: (BuildContext context, int index) {
@@ -71,7 +71,7 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
               },
             ),
           ),
-          Divider(height: 1.0),
+          const Divider(height: 1.0),
           Container(
             decoration: BoxDecoration(color: Theme.of(context).cardColor),
             child: _buildTextComposer(),
@@ -83,15 +83,15 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
 
   Widget _buildMessage(WhatsAppMessage message) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              child: Text('M'),
+            margin: const EdgeInsets.only(right: 16.0),
+            child: const CircleAvatar(
               backgroundColor: Color(0xFFFFC600),
+              child: Text('M'),
             ),
           ),
           Expanded(
@@ -100,9 +100,9 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
               children: [
                 Text(message.senderName,
                     style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                        const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                 Container(
-                  margin: EdgeInsets.only(top: 5.0),
+                  margin: const EdgeInsets.only(top: 5.0),
                   child: Text(message.message),
                 ),
               ],

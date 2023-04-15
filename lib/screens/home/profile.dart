@@ -15,8 +15,8 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFFFC600),
-        title: Text(
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text(
           'Profil',
           style: TextStyle(color: Colors.black),
         ),
@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
           Container(
             height: 200.0,
             color: Colors.grey[300],
-            child: Center(
+            child: const Center(
               child: CircleAvatar(
                 radius: 50.0,
                 backgroundImage: NetworkImage(
@@ -35,8 +35,8 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20.0),
-          Text(
+          const SizedBox(height: 20.0),
+          const Text(
             'Mikail Yusuf Güllük',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Text(
             'mikail.gulluk@gmail.com',
             textAlign: TextAlign.center,
@@ -53,33 +53,33 @@ class ProfilePage extends StatelessWidget {
               color: Colors.grey[700],
             ),
           ),
-          SizedBox(height: 20.0),
-          ListTile(
+          const SizedBox(height: 20.0),
+          const ListTile(
             leading: Icon(Icons.phone),
             title: Text('Telefon Numarası'),
             subtitle: Text('+90 555 555 55 55'),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => PrivacyPage()));
             },
-            leading: Icon(Icons.lock),
-            title: Text('Gizlilik'),
-            subtitle: Text('Hesabım özel'),
+            leading: const Icon(Icons.lock),
+            title: const Text('Gizlilik'),
+            subtitle: const Text('Hesabım özel'),
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ChangePasswordPage()));
+                      builder: (context) => const ChangePasswordPage()));
             },
-            leading: Icon(Icons.security),
-            title: Text('Şifre'),
-            subtitle: Text('••••••••'),
+            leading: const Icon(Icons.security),
+            title: const Text('Şifre'),
+            subtitle: const Text('••••••••'),
           ),
         ],
       ),

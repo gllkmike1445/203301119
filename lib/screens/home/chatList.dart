@@ -13,9 +13,10 @@ class _ChatListPageState extends State<ChatListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFFFC600),
-        title: Text(
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text(
           'Sohbetlerim',
           style: TextStyle(color: Colors.black),
         ),
@@ -24,13 +25,13 @@ class _ChatListPageState extends State<ChatListPage> {
         itemCount: 3,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
-            leading: CircleAvatar(
-              child: Text('M'),
+            leading: const CircleAvatar(
               backgroundColor: Color(0xFFFFC600),
+              child: Text('M'),
             ),
-            title: Text('John Doe'),
-            subtitle: Text('....'),
-            trailing: Text('9:20'),
+            title: const Text('John Doe'),
+            subtitle: const Text('....'),
+            trailing: const Text('9:20'),
             onTap: () {
               Navigator.push(
                 context,
@@ -43,9 +44,9 @@ class _ChatListPageState extends State<ChatListPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFFC600),
+        backgroundColor: const Color(0xFFFFC600),
         onPressed: () {},
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.black,
         ),

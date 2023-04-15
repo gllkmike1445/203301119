@@ -76,8 +76,8 @@ class _ContactsPageState extends State<ContactsPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFFFC600),
-        title: Text(
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text(
           'Kişiler',
           style: TextStyle(color: Colors.black),
         ),
@@ -88,12 +88,12 @@ class _ContactsPageState extends State<ContactsPage> {
           return ListTile(
             onTap: () {},
             leading: CircleAvatar(
+              backgroundImage: const NetworkImage("https://picsum.photos/id/1015/200"),
               child:
               Text(contacts[index].name[0]),
-              backgroundImage: NetworkImage("https://picsum.photos/id/1015/200"),
             ),
             title: Text(contacts[index].name),
-            subtitle: Text('Durum yok'),
+            subtitle: const Text('Durum yok'),
             trailing: PopupMenuButton(
               onSelected: (result) {
                 if (result == 'edit') {

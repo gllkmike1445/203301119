@@ -1,12 +1,10 @@
 import 'package:chat_by_me/screens/authentication/login.dart';
-import 'package:chat_by_me/screens/authentication/register.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_screen_onboarding_flutter/intro_app.dart';
 
-import '../../models/user.dart';
 
 class IntroScreen extends StatelessWidget {
-  late final User user;
+
 
   final List<Introduction> list = [
     Introduction(

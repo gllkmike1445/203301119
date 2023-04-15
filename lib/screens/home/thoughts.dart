@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ThoughtsPage extends StatelessWidget {
+  ThoughtsPage({super.key});
+
   final List<Thought> thoughts = [
     Thought(
       name: 'Ahmet',
@@ -34,13 +36,14 @@ class ThoughtsPage extends StatelessWidget {
     ),
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFFFC600),
-        title: Text(
+        title: const Text(
           'Durumlar',
           style: TextStyle(color: Colors.black),
         ),
@@ -65,13 +68,13 @@ class ThoughtsPage extends StatelessWidget {
                           backgroundImage:
                               NetworkImage(thoughts[index].imageUrl),
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               thoughts[index].name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.bold),
                             ),
                             Text(
@@ -83,10 +86,10 @@ class ThoughtsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Text(
                       thoughts[index].thought,
-                      style: TextStyle(fontSize: 16.0),
+                      style: const TextStyle(fontSize: 16.0),
                     ),
                   ],
                 ),
@@ -96,15 +99,14 @@ class ThoughtsPage extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFFC600),
-        child: Icon(Icons.add),
+        backgroundColor: const Color(0xFFFFC600),
+        child: const Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
             context: context,
             builder: (context) => NewThoughtModal(),
           );
-          // Yeni düşünce ekleme işlemleri yapılacak
-          print('Yeni düşünce eklendi');
+
         },
       ),
     );

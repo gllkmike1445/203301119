@@ -34,42 +34,42 @@ class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.chat),
-            title: Text(
+            icon: const Icon(Icons.chat),
+            title: const Text(
               "Sohbetler",
               style: TextStyle(color: Colors.black),
             ),
-            selectedColor: Color(0xFFFFC600),
+            selectedColor: const Color(0xFFFFC600),
           ),
 
           /// Likes
           SalomonBottomBarItem(
-            icon: Icon(Icons.contact_emergency),
-            title: Text(
+            icon: const Icon(Icons.contact_emergency),
+            title: const Text(
               "Kişiler",
               style: TextStyle(color: Colors.black),
             ),
-            selectedColor: Color(0xFFFFC600),
+            selectedColor: const Color(0xFFFFC600),
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.sell_sharp),
-            title: Text(
+            icon: const Icon(Icons.sell_sharp),
+            title: const Text(
               "Durum",
               style: TextStyle(color: Colors.black),
             ),
-            selectedColor: Color(0xFFFFC600),
+            selectedColor: const Color(0xFFFFC600),
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text(
+            icon: const Icon(Icons.person),
+            title: const Text(
               "Profil",
               style: TextStyle(color: Colors.black),
             ),
-            selectedColor: Color(0xFFFFC600),
+            selectedColor: const Color(0xFFFFC600),
           ),
         ],
       ),

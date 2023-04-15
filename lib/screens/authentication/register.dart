@@ -1,8 +1,4 @@
-import 'dart:math';
-
 import 'package:chat_by_me/screens/authentication/login.dart';
-import 'package:chat_by_me/screens/authentication/register.dart';
-import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
@@ -25,20 +21,23 @@ class RegisterPage extends StatelessWidget {
   final passwordController = TextEditingController();
   final passwordAgainController = TextEditingController();
 
+  RegisterPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
+             // crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
-                HeaderText(text: 'Kayıt Ol'),
-                SizedBox(height: 40.0),
+                const HeaderText(text: 'Kayıt Ol'),
+                const SizedBox(height: 40.0),
                 // Kullanıcı Adı Alanı
                 TextFormField(
                   controller: nameController,
@@ -46,13 +45,13 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'Ad Soyad',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: Colors.grey),
                     ),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 // Şifre Alanı
                 TextFormField(
                   controller: mailController,
@@ -60,13 +59,13 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'E-Posta',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: Colors.grey),
                     ),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 // Şifre Alanı
                 TextFormField(
                   controller: phoneController,
@@ -74,13 +73,13 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'Telefon Numarası',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: Colors.grey),
                     ),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 // Şifre Alanı
                 TextFormField(
                   controller: passwordController,
@@ -89,13 +88,13 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'Şifre',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: Colors.grey),
                     ),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 // Şifre Alanı
                 TextFormField(
                   controller: passwordAgainController,
@@ -104,15 +103,15 @@ class RegisterPage extends StatelessWidget {
                     hintText: 'Tekrar Şifre',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: const BorderSide(color: Colors.grey),
                     ),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20),
+                  margin: const EdgeInsets.only(bottom: 20),
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     onPressed: () {
@@ -129,24 +128,24 @@ class RegisterPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: SmallText(
+                    style: ElevatedButton.styleFrom(
+                      primary:  Colors.orange,
+                    ),
+                    child: const SmallText(
                       text: 'Kayıt Ol',
                       color: Colors.black,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFFFC600),
                     ),
                   ),
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Expanded(
                       child: Divider(
                         color: Colors.black,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'veya',
                         style: TextStyle(
@@ -162,17 +161,17 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Hesabın var mı?',
                       style: TextStyle(
                         fontSize: 14,
                       ),
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -182,10 +181,10 @@ class RegisterPage extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Giriş Yap',
-                        style:
-                            TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],

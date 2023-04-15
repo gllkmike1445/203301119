@@ -1,9 +1,7 @@
-import 'dart:math';
 
 import 'package:chat_by_me/screens/authentication/register.dart';
 import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
-import 'package:chat_by_me/widgets/general/text/mediumText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
 
@@ -24,21 +22,21 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
   final User? user;
 
-  LoginPage({this.user});
+  LoginPage({super.key, this.user});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo
-              HeaderText(text: 'Chat By Me'),
-              LargeText(text: 'Hoşgeldin!'),
-              SizedBox(height: 40.0),
+              const HeaderText(text: 'Chat By Me'),
+              const LargeText(text: 'Hoşgeldin!'),
+              const SizedBox(height: 40.0),
               // Kullanıcı Adı Alanı
               TextFormField(
                 controller: mailController,
@@ -46,13 +44,13 @@ class LoginPage extends StatelessWidget {
                   hintText: 'E-Posta',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                   ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               // Şifre Alanı
               TextFormField(
                 controller: passwordController,
@@ -61,15 +59,15 @@ class LoginPage extends StatelessWidget {
                   hintText: 'Şifre',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                   ),
                   filled: true,
                   fillColor: Colors.white,
                 ),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Container(
-                margin: EdgeInsets.only(bottom: 20),
+                margin: const EdgeInsets.only(bottom: 20),
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                   onPressed: () {
@@ -87,24 +85,24 @@ class LoginPage extends StatelessWidget {
                           context, 'Hatalı kullanıcı adı veya şifre');
                     }
                   },
-                  child: SmallText(
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color(0xFFFFC600),
+                  ),
+                  child: const SmallText(
                     text: 'Giriş Yap',
                     color: Colors.black,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFFFC600),
                   ),
                 ),
               ),
               Row(
-                children: [
+                children: const [
                   Expanded(
                     child: Divider(
                       color: Colors.black,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
                     child: Text(
                       'veya',
                       style: TextStyle(
@@ -120,7 +118,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -131,7 +129,7 @@ class LoginPage extends StatelessWidget {
                     width: 75,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                           bottomLeft: Radius.circular(10),
@@ -140,13 +138,13 @@ class LoginPage extends StatelessWidget {
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset: const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
-                    child: Icon(Icons.facebook),
+                    child: const Icon(Icons.facebook),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
@@ -154,7 +152,7 @@ class LoginPage extends StatelessWidget {
                     width: 75,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                           bottomLeft: Radius.circular(10),
@@ -163,13 +161,13 @@ class LoginPage extends StatelessWidget {
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset: const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
-                    child: Icon(Icons.apple),
+                    child: const Icon(Icons.apple),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
@@ -177,7 +175,7 @@ class LoginPage extends StatelessWidget {
                     width: 75,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
                           bottomLeft: Radius.circular(10),
@@ -186,25 +184,25 @@ class LoginPage extends StatelessWidget {
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                          offset: const Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
-                    child: Icon(Icons.android),
+                    child: const Icon(Icons.android),
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Hesabın yok mu?',
                     style: TextStyle(
                       fontSize: 14,
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -214,7 +212,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Kayıt Ol...',
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.bold),

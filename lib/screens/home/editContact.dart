@@ -5,7 +5,7 @@ class EditContactPage extends StatefulWidget {
   final String phone;
   final String email;
 
-  EditContactPage({
+  const EditContactPage({super.key,
     required this.name,
     required this.phone,
     required this.email,
@@ -34,8 +34,8 @@ class _EditContactPageState extends State<EditContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFC600),
-        title: Text('Kişi Düzenle'),
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text('Kişi Düzenle'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,7 +46,7 @@ class _EditContactPageState extends State<EditContactPage> {
             children: [
               TextFormField(
                 initialValue: _name,
-                decoration: InputDecoration(labelText: 'İsim'),
+                decoration: const InputDecoration(labelText: 'İsim'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Lütfen bir isim girin.';
@@ -59,7 +59,7 @@ class _EditContactPageState extends State<EditContactPage> {
               ),
               TextFormField(
                 initialValue: _phone,
-                decoration: InputDecoration(labelText: 'Telefon'),
+                decoration: const InputDecoration(labelText: 'Telefon'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Lütfen bir telefon numarası girin.';
@@ -72,18 +72,18 @@ class _EditContactPageState extends State<EditContactPage> {
               ),
               TextFormField(
                 initialValue: _email,
-                decoration: InputDecoration(labelText: 'E-posta'),
+                decoration: const InputDecoration(labelText: 'E-posta'),
                 onSaved: (value) {
                   _email = value!;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFFFFC600),
+                  primary: const Color(0xFFFFC600),
                 ),
                 onPressed: _saveContact,
-                child: Text('Kaydet'),
+                child: const Text('Kaydet'),
               ),
             ],
           ),

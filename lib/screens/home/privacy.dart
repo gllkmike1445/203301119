@@ -7,15 +7,15 @@ class PrivacyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFC600),
-        title: Text('Gizlilik Politikası'),
+        backgroundColor: const Color(0xFFFFC600),
+        title: const Text('Gizlilik Politikası'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 'Veri Toplama ve Kullanımı',
                 style: TextStyle(
