@@ -1,7 +1,9 @@
+import 'package:chat_by_me/auth.dart';
 import 'package:chat_by_me/screens/authentication/login.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
+
 
 import '../../models/user.dart';
 
@@ -32,7 +34,7 @@ class RegisterPage extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
-             // crossAxisAlignment: CrossAxisAlignment.end,
+              // crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
@@ -112,24 +114,35 @@ class RegisterPage extends StatelessWidget {
                 const SizedBox(height: 30.0),
                 Container(
                   margin: const EdgeInsets.only(bottom: 20),
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   child: ElevatedButton(
                     onPressed: () {
-                      User user = User(
+                      UserModel user = UserModel(
                         phone: phoneController.text,
                         name: nameController.text,
                         email: mailController.text,
                         password: passwordController.text,
                       );
-                      Navigator.push(
+                      Auth()
+                          .createUser(
+                          mailController.text, passwordController.text, user)
+                          .then((value)
+                      {
+
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => LoginPage(user: user),
                         ),
                       );
+                    }
+                      );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary:  Colors.orange,
+                      primary: Colors.orange,
                     ),
                     child: const SmallText(
                       text: 'Kayıt Ol',

@@ -1,4 +1,4 @@
-
+import 'package:chat_by_me/auth.dart';
 import 'package:chat_by_me/screens/authentication/register.dart';
 import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
 import '../../widgets/general/text/largeText.dart';
+import 'forgotPassword.dart';
 
 void showErrorMessage(BuildContext context, String errorMessage) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -20,7 +21,7 @@ void showErrorMessage(BuildContext context, String errorMessage) {
 class LoginPage extends StatelessWidget {
   final mailController = TextEditingController();
   final passwordController = TextEditingController();
-  final User? user;
+  final UserModel? user;
 
   LoginPage({super.key, this.user});
 
@@ -68,22 +69,32 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 30.0),
               Container(
                 margin: const EdgeInsets.only(bottom: 20),
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 child: ElevatedButton(
                   onPressed: () {
                     if (mailController.text == user?.email &&
                         passwordController.text == user?.password) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              HomePageNavigationBar(user: user),
-                        ),
+                      Auth()
+                          .login(mailController.text, passwordController.text)
+                          .then((value) =>
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HomePageNavigationBar(user: user),
+                            ),
+                          )
                       );
+
                     } else {
                       showErrorMessage(
                           context, 'Hatalı kullanıcı adı veya şifre');
                     }
+
+
                   },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFFFFC600),
@@ -138,7 +149,8 @@ class LoginPage extends StatelessWidget {
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
-                          offset: const Offset(0, 3), // changes position of shadow
+                          offset: const Offset(
+                              0, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -161,7 +173,8 @@ class LoginPage extends StatelessWidget {
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
-                          offset: const Offset(0, 3), // changes position of shadow
+                          offset: const Offset(
+                              0, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -170,25 +183,41 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     width: 20,
                   ),
-                  Container(
-                    height: 48,
-                    width: 75,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 7,
-                          offset: const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
+                  InkWell(
+                    onTap: () {
+                      Auth().signInWithGoogle().then((value)
+                      {
+
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    HomePageNavigationBar(user: user),
+                              ),
+                            );
+                          });
+                    },
+                    child: Container(
+                      height: 48,
+                      width: 75,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: const Icon(Icons.android),
                     ),
-                    child: const Icon(Icons.android),
                   ),
                 ],
               ),
@@ -215,11 +244,39 @@ class LoginPage extends StatelessWidget {
                     child: const Text(
                       'Kayıt Ol...',
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),
                   )
                 ],
-              )
+              ),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'sifremi unuttum',
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgotPassword(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'yenile',
+                      style:
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
+              ),
               // Giriş ve Kayıt Ol Butonları
             ],
           ),

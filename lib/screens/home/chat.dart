@@ -1,4 +1,6 @@
+import 'package:chat_by_me/screens/home/editContact.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_by_me/Globals.dart' as globals;
 
 class WhatsAppChatPage extends StatefulWidget {
   @override
@@ -47,14 +49,21 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFC600),
-        title: const Text(
-          "Mikail Yusuf Güllük",
+        title:  Text(
+          globals.user.name,
           style: TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.more_vert),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditContactPage(name: globals.user.name, phone: globals.user.phone, email: globals.user.email),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -115,7 +124,7 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
 
   Widget _buildTextComposer() {
     return IconTheme(
-      data: IconThemeData(color: Theme.of(context).accentColor),
+      data: IconThemeData(color: Colors.amber),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(

@@ -9,50 +9,50 @@ class ContactsPage extends StatefulWidget {
 }
 
 class _ContactsPageState extends State<ContactsPage> {
-  List<User> contacts = [
-    User(
+  List<UserModel> contacts = [
+    UserModel(
         name: 'Ahmet',
         email: 'ahmet@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Mehmet',
         email: 'mehmet@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Ayşe',
         email: 'ayse@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Fatma',
         email: 'fatma@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Ali',
         email: 'ali@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Veli',
         email: 'veli@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Can',
         email: 'can@example.com',
         password: '123456',
         phone: '1234567890'),
-    User(
+    UserModel(
         name: 'Emre',
         email: 'emre@example.com',
         password: '123456',
         phone: '1234567890'),
   ];
 
-  void editContact(BuildContext context, User contact) {
+  void editContact(BuildContext context, UserModel contact) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -65,7 +65,7 @@ class _ContactsPageState extends State<ContactsPage> {
     );
   }
 
-  void deleteContact(User contact) {
+  void deleteContact(UserModel contact) {
     setState(() {
       contacts.remove(contact);
     });

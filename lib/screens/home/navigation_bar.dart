@@ -2,21 +2,24 @@ import 'package:chat_by_me/screens/home/chatList.dart';
 import 'package:chat_by_me/screens/home/contact.dart';
 import 'package:chat_by_me/screens/home/profile.dart';
 import 'package:chat_by_me/screens/home/thoughts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-
+import 'package:chat_by_me/Globals.dart' as globals;
 import '../../main.dart';
 import '../../models/user.dart';
 
 class HomePageNavigationBar extends StatefulWidget {
   const HomePageNavigationBar({super.key, this.user});
-  final User? user;
+  final UserModel? user;
 
   @override
   State<HomePageNavigationBar> createState() => _HomePageNavigationBarState();
 }
 
 class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
+
   var _currentIndex = 0;
   final _pages = [
     ChatListPage(),
@@ -26,6 +29,7 @@ class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    globals.fetchInfo();
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: SalomonBottomBar(
