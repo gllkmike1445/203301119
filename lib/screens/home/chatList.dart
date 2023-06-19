@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-
 import 'chat.dart';
 
 class ChatListPage extends StatefulWidget {
@@ -13,12 +11,13 @@ class _ChatListPageState extends State<ChatListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFFFC600),
         title: const Text(
           'Sohbetlerim',
           style: TextStyle(color: Colors.black),
+          textAlign: TextAlign.center,
         ),
       ),
       body: ListView.builder(
@@ -36,7 +35,7 @@ class _ChatListPageState extends State<ChatListPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => WhatsAppChatPage(),
+                  builder: (context) => ChatPage(),
                 ),
               );
             },

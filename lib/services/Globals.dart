@@ -7,6 +7,7 @@ var name = "";
 var phone = "";
 var email = "";
 
+
 void fetchInfo() {
   Auth().getUser().then((value) => {
     user = value,

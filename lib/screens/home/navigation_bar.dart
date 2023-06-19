@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:chat_by_me/Globals.dart' as globals;
+import 'package:chat_by_me/services/Globals.dart' as globals;
 import '../../main.dart';
 import '../../models/user.dart';
 

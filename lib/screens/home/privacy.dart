@@ -7,6 +7,7 @@ class PrivacyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color(0xFFFFC600),
         title: const Text('Gizlilik Politikası'),
       ),

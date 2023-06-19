@@ -41,6 +41,7 @@ class ThoughtsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFFFC600),
         title: const Text(

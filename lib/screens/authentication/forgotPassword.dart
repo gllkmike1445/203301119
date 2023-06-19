@@ -1,4 +1,4 @@
-import 'package:chat_by_me/auth.dart';
+import 'package:chat_by_me/services/auth.dart';
 import 'package:chat_by_me/screens/authentication/register.dart';
 import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
@@ -44,7 +44,7 @@ class ForgotPassword extends StatelessWidget {
                   controller: mailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter email';
+                      return 'Lütfen bir adress giriniz';
                     }
                     return null;
                   },
@@ -86,8 +86,8 @@ class ForgotPassword extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     Expanded(
                       child: Divider(
                         color: Colors.black,
@@ -159,7 +159,7 @@ class ForgotPassword extends StatelessWidget {
                         );
                       },
                       child: const Text(
-                        'Giriş Yap',
+                        'Giriş sayfasına dön!',
                         style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                       ),

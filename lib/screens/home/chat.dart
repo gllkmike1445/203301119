@@ -1,38 +1,17 @@
 import 'package:chat_by_me/screens/home/editContact.dart';
 import 'package:flutter/material.dart';
-import 'package:chat_by_me/Globals.dart' as globals;
+import 'package:chat_by_me/services/Globals.dart' as globals;
 
-class WhatsAppChatPage extends StatefulWidget {
+class ChatPage extends StatefulWidget {
+  const ChatPage({super.key});
+
   @override
-  _WhatsAppChatPageState createState() => _WhatsAppChatPageState();
+  _ChatPageState createState() => _ChatPageState();
 }
 
-class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
+class _ChatPageState extends State<ChatPage> {
   List<WhatsAppMessage> messages = [
-    WhatsAppMessage(
-        message: "Merhaba, nasılsın?",
-        senderName: "Ahmet",
-        profileImage: "ahmet.jpg"),
-    WhatsAppMessage(
-        message: "İyiyim, sen nasılsın?",
-        senderName: "Ayşe",
-        profileImage: "ayse.jpg"),
-    WhatsAppMessage(
-        message: "Ben de iyiyim, teşekkür ederim.",
-        senderName: "Ahmet",
-        profileImage: "ahmet.jpg"),
-    WhatsAppMessage(
-        message: "Ne yapıyorsun bu aralar?",
-        senderName: "Ayşe",
-        profileImage: "ayse.jpg"),
-    WhatsAppMessage(
-        message: "İşler biraz yoğun ama iyi gidiyor.",
-        senderName: "Ahmet",
-        profileImage: "ahmet.jpg"),
-    WhatsAppMessage(
-        message: "Anladım, kolay gelsin.",
-        senderName: "Ayşe",
-        profileImage: "ayse.jpg"),
+
   ];
 
   final _textController = TextEditingController();
@@ -46,10 +25,15 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    globals.fetchInfo();
+    var image = Uri.parse(globals.user?.image).data == null
+        ? NetworkImage(globals.user?.image) as ImageProvider
+        : MemoryImage(Uri.parse(globals.user?.image).data!.contentAsBytes());
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color(0xFFFFC600),
-        title:  Text(
+        title: Text(
           globals.user.name,
           style: TextStyle(color: Colors.black),
         ),
@@ -60,32 +44,44 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EditContactPage(name: globals.user.name, phone: globals.user.phone, email: globals.user.email),
+                  builder: (context) => EditContactPage(
+                    name: globals.user.name,
+                    phone: globals.user.phone,
+                    email: globals.user.email,
+                  ),
                 ),
               );
             },
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(8.0),
-              reverse: true,
-              itemCount: messages.length,
-              itemBuilder: (BuildContext context, int index) {
-                final message = messages[index];
-                return _buildMessage(message);
-              },
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(globals.user.backgroundImage),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(8.0),
+                reverse: true,
+                itemCount: messages.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final message = messages[index];
+                  return _buildMessage(message);
+                },
+              ),
             ),
-          ),
-          const Divider(height: 1.0),
-          Container(
-            decoration: BoxDecoration(color: Theme.of(context).cardColor),
-            child: _buildTextComposer(),
-          ),
-        ],
+            const Divider(height: 1.0),
+            Container(
+              decoration: BoxDecoration(color: Theme.of(context).cardColor),
+              child: _buildTextComposer(),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -109,7 +105,7 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
               children: [
                 Text(message.senderName,
                     style:
-                        const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                    const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                 Container(
                   margin: const EdgeInsets.only(top: 5.0),
                   child: Text(message.message),
@@ -139,7 +135,7 @@ class _WhatsAppChatPageState extends State<WhatsAppChatPage> {
                 },
                 onFieldSubmitted: _handleSubmitted,
                 decoration:
-                    InputDecoration.collapsed(hintText: "Bir mesaj yazın"),
+                InputDecoration.collapsed(hintText: "Bir mesaj yazın"),
               ),
             ),
             Container(
@@ -176,6 +172,6 @@ class WhatsAppMessage {
 
   WhatsAppMessage(
       {required this.message,
-      required this.senderName,
-      required this.profileImage});
+        required this.senderName,
+        required this.profileImage});
 }

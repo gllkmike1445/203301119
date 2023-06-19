@@ -1,4 +1,4 @@
-import 'package:chat_by_me/auth.dart';
+import 'package:chat_by_me/services/auth.dart';
 import 'package:chat_by_me/screens/authentication/register.dart';
 import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
