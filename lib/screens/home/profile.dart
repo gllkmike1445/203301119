@@ -1,19 +1,19 @@
-import 'package:chat_by_me/screens/home/admin_screen.dart';
-import 'package:chat_by_me/screens/home/admin_settings_screen.dart';
-import 'package:chat_by_me/screens/home/help_screen.dart';
-import 'package:chat_by_me/services/auth.dart';
 import 'package:chat_by_me/screens/authentication/login.dart';
 import 'package:chat_by_me/screens/authentication/resetPassword.dart';
+import 'package:chat_by_me/screens/home/admin_settings_screen.dart';
 import 'package:chat_by_me/screens/home/changeBackground.dart';
+import 'package:chat_by_me/screens/home/help_screen.dart';
 import 'package:chat_by_me/screens/home/privacy.dart';
+import 'package:chat_by_me/services/auth.dart';
+import 'package:chat_by_me/services/globals.dart' as globals;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:chat_by_me/services/Globals.dart' as globals;
 
 class ProfilePage extends StatelessWidget {
   bool shouldShowAdmin() {
     return FirebaseAuth.instance.currentUser?.email == 'gullukmikail@gmail.com';
   }
+
   @override
   Widget build(BuildContext context) {
     globals.fetchInfo();
@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
             Text(
               globals.name,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -64,15 +64,17 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(height: 20.0),
             const Divider(),
             ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Telefon Numarası'),
+              leading: const Icon(Icons.phone),
+              title: const Text('Telefon Numarası'),
               subtitle: Text(globals.phone),
             ),
             const Divider(),
             ListTile(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PrivacyPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PrivacyPage()));
               },
               leading: const Icon(Icons.lock),
               title: const Text('Gizlilik'),
@@ -96,7 +98,7 @@ class ProfilePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HelpAndSupportScreen(),
+                    builder: (context) => const HelpAndSupportScreen(),
                   ),
                 );
               },
@@ -113,7 +115,7 @@ class ProfilePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AdminSettingsScreen(),
+                          builder: (context) => const AdminSettingsScreen(),
                         ),
                       );
                     },
@@ -125,11 +127,8 @@ class ProfilePage extends StatelessWidget {
             const Divider(),
             ListTile(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>  PhotoListPage()));
-
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PhotoListPage()));
               },
               leading: const Icon(Icons.settings),
               title: const Text('Arka Plan Ayarlari'),
@@ -137,17 +136,14 @@ class ProfilePage extends StatelessWidget {
             ),
             const Divider(),
             ListTile(
-              onTap: ()async {
+              onTap: () async {
                 await Auth().signOut();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>  LoginPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
               },
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Çıkış'),
             ),
-
           ],
         ),
       ),

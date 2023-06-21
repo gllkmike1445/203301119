@@ -21,21 +21,21 @@ class _ChatListPageState extends State<ChatListPage> {
         ),
       ),
       body: ListView.builder(
-        itemCount: 3,
+        itemCount: 1,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             leading: const CircleAvatar(
               backgroundColor: Color(0xFFFFC600),
               child: Text('M'),
             ),
-            title: const Text('John Doe'),
+            title: const Text('Ahmet Sait'),
             subtitle: const Text('....'),
             trailing: const Text('9:20'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ChatPage(),
+                  builder: (context) => const ChatPage(),
                 ),
               );
             },

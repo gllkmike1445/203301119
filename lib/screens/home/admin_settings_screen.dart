@@ -1,9 +1,6 @@
 import 'package:chat_by_me/screens/home/admin_screen.dart';
 import 'package:chat_by_me/screens/home/geschlecht.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'help_screen.dart';
 
 class AdminSettingsScreen extends StatelessWidget {
   const AdminSettingsScreen({super.key});
@@ -39,7 +36,7 @@ class AdminSettingsScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AdminScreen(),
+                        builder: (context) => const AdminScreen(),
                       ),
                     );
                   },

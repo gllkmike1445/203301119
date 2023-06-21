@@ -16,7 +16,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFC600),
+        backgroundColor: const Color(0xFFFFC600),
         title: const Text('Şifremi Değiştir'),
       ),
       body: Padding(

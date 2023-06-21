@@ -81,7 +81,7 @@ class ThoughtsPage extends StatelessWidget {
                             Text(
                               thoughts[index].time,
                               style:
-                                  TextStyle(fontSize: 12.0, color: Colors.grey),
+                                  const TextStyle(fontSize: 12.0, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -101,7 +101,12 @@ class ThoughtsPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFFFFC600),
-        child: const Icon(Icons.add),
+        child: const Icon(
+            Icons.add,
+            color: Colors.black,
+
+        ),
+
         onPressed: () {
           showModalBottomSheet(
             context: context,
@@ -141,14 +146,14 @@ class _NewThoughtModalState extends State<NewThoughtModal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Yeni Düşünce Ekle'),
-          SizedBox(height: 16.0),
+          const Text('Yeni Düşünce Ekle'),
+          const SizedBox(height: 16.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Adınız',
             ),
             onChanged: (value) {
@@ -157,9 +162,9 @@ class _NewThoughtModalState extends State<NewThoughtModal> {
               });
             },
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Profil Resmi URL\'si',
             ),
             onChanged: (value) {
@@ -168,9 +173,9 @@ class _NewThoughtModalState extends State<NewThoughtModal> {
               });
             },
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Düşünceniz',
             ),
             onChanged: (value) {
@@ -179,12 +184,12 @@ class _NewThoughtModalState extends State<NewThoughtModal> {
               });
             },
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFFFC600),
+              primary: const Color(0xFFFFC600),
             ),
-            child: Text('Ekle'),
+            child: const Text('Ekle'),
             onPressed: () {
               // Yeni düşünceyi ekleyin
               Navigator.pop(context);

@@ -21,10 +21,11 @@ class AdminInformation extends StatelessWidget {
     };
     return Scaffold(
         appBar: AppBar(
-          title: MediumText(
-              text: "Uygulama Özeti", color: Colors.red),
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
+          centerTitle: true,
+          title: const MediumText(
+              text: "Uygulama Özeti", color: Colors.white),
+          backgroundColor: Colors.yellow,
+          foregroundColor: Colors.white,
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -32,21 +33,21 @@ class AdminInformation extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MediumText(
+                const MediumText(
                     text: "Uygulamada Geçirilen Süre(Saat)",
-                    color: Colors.red),
-                SizedBox(
-                  height: 30,
+                    color: Colors.black),
+                const SizedBox(
+                  height:16,
                 ),
                 graphicsData(dataMap, context),
-                Divider(
+                const Divider(
                   height: 60,
-                  color: Colors.red,
+                  color: Colors.black,
                 ),
-                MediumText(
+                const MediumText(
                     text: "Airdrop Sayıları",
-                    color: Colors.red),
-                SizedBox(
+                    color: Colors.black),
+                const SizedBox(
                   height: 30,
                 ),
                 graphicsData2(dataMap2, context),
@@ -59,13 +60,13 @@ class AdminInformation extends StatelessWidget {
   PieChart graphicsData2(Map<String, double> dataMap2, BuildContext context) {
     return PieChart(
       dataMap: dataMap2,
-      animationDuration: Duration(milliseconds: 5200),
+      animationDuration: const Duration(milliseconds: 5200),
       chartLegendSpacing: 32,
       chartRadius: MediaQuery.of(context).size.width / 3.2,
       initialAngleInDegree: 0,
       chartType: ChartType.ring,
       ringStrokeWidth: 32,
-      legendOptions: LegendOptions(
+      legendOptions: const LegendOptions(
         showLegendsInRow: false,
         legendPosition: LegendPosition.right,
         showLegends: true,
@@ -86,13 +87,13 @@ class AdminInformation extends StatelessWidget {
   PieChart graphicsData(Map<String, double> dataMap, BuildContext context) {
     return PieChart(
       dataMap: dataMap,
-      animationDuration: Duration(milliseconds: 1600),
+      animationDuration: const Duration(milliseconds: 1600),
       chartLegendSpacing: 32,
       chartRadius: MediaQuery.of(context).size.width / 3.2,
       initialAngleInDegree: 0,
       chartType: ChartType.ring,
       ringStrokeWidth: 32,
-      legendOptions: LegendOptions(
+      legendOptions: const LegendOptions(
         showLegendsInRow: false,
         legendPosition: LegendPosition.right,
         showLegends: true,

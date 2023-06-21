@@ -150,8 +150,8 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: const [
+                const Row(
+                  children: [
                     Expanded(
                       child: Divider(
                         color: Colors.black,

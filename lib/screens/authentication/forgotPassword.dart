@@ -1,11 +1,8 @@
-import 'package:chat_by_me/services/auth.dart';
 import 'package:chat_by_me/screens/authentication/register.dart';
-import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/user.dart';
 import '../../widgets/general/text/largeText.dart';
 import 'create_password.dart';
 import 'login.dart';
@@ -22,6 +19,7 @@ void showErrorMessage(BuildContext context, String errorMessage) {
 class ForgotPassword extends StatelessWidget {
   final mailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
   ForgotPassword({super.key});
 
   @override
@@ -62,13 +60,10 @@ class ForgotPassword extends StatelessWidget {
                 // Şifre Alanı
                 Container(
                   margin: const EdgeInsets.only(bottom: 20),
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     onPressed: () {
-                      if(!_formKey.currentState!.validate()) return;
+                      if (!_formKey.currentState!.validate()) return;
 
                       Navigator.push(
                         context,
@@ -132,8 +127,8 @@ class ForgotPassword extends StatelessWidget {
                       },
                       child: const Text(
                         'Kayıt Ol...',
-                        style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -160,8 +155,8 @@ class ForgotPassword extends StatelessWidget {
                       },
                       child: const Text(
                         'Giriş sayfasına dön!',
-                        style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],

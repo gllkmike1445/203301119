@@ -97,6 +97,6 @@ catch(error){
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
-    await GoogleSignIn().signOut(); // Google hesabından çıkış yapın
+    await GoogleSignIn().signOut();
   }
 }

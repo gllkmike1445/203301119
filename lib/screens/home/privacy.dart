@@ -11,12 +11,12 @@ class PrivacyPage extends StatelessWidget {
         backgroundColor: const Color(0xFFFFC600),
         title: const Text('Gizlilik Politikası'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'Veri Toplama ve Kullanımı',
                 style: TextStyle(

@@ -2,16 +2,15 @@ import 'package:chat_by_me/screens/home/chatList.dart';
 import 'package:chat_by_me/screens/home/contact.dart';
 import 'package:chat_by_me/screens/home/profile.dart';
 import 'package:chat_by_me/screens/home/thoughts.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:chat_by_me/services/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:chat_by_me/services/Globals.dart' as globals;
-import '../../main.dart';
+
 import '../../models/user.dart';
 
 class HomePageNavigationBar extends StatefulWidget {
   const HomePageNavigationBar({super.key, this.user});
+
   final UserModel? user;
 
   @override
@@ -19,7 +18,6 @@ class HomePageNavigationBar extends StatefulWidget {
 }
 
 class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
-
   var _currentIndex = 0;
   final _pages = [
     ChatListPage(),
@@ -27,6 +25,7 @@ class _HomePageNavigationBarState extends State<HomePageNavigationBar> {
     ThoughtsPage(),
     ProfilePage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     globals.fetchInfo();

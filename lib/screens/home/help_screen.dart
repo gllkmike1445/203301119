@@ -1,7 +1,6 @@
 import 'package:chat_by_me/widgets/general/text/mediumText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
-
 import '../../models/help_models.dart';
 import '../../services/help_service.dart';
 
@@ -25,10 +24,10 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: MediumText(
-                text: "Yardım ve Destek", color: Colors.red),
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
+            title: const MediumText(
+                text: "Yardım ve Destek", color: Colors.white),
+            backgroundColor: const Color(0xFFFFC600),
+            foregroundColor: Colors.white,
           ),
           body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -42,43 +41,46 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                         hintText: 'Ad Soyad',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          borderSide: const BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.black),
                         ),
                         filled: true,
                         fillColor: Colors.white,
                       ),
                     ),
+                    const SizedBox(height: 16.0),
                     TextFormField(
                       controller: mailController,
                       decoration: InputDecoration(
                         hintText: 'E-Posta',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          borderSide: const BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.black),
                         ),
                         filled: true,
                         fillColor: Colors.white,
                       ),
                     ),
+                    const SizedBox(height: 16.0),
                     TextFormField(
                       controller: subjectController,
                       decoration: InputDecoration(
                         hintText: 'Konu',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          borderSide: const BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.black),
                         ),
                         filled: true,
                         fillColor: Colors.white,
                       ),
                     ),
+                    const SizedBox(height: 16.0),
                     TextFormField(
                       controller: messageController,
                       decoration: InputDecoration(
                         hintText: 'Mesaj',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          borderSide: const BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.black),
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -98,10 +100,10 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return AlertDialog(
+                            return const AlertDialog(
                                 title: MediumText(
                                     text: "Gönderildi!",
-                                    color: Colors.red),
+                                    color: Colors.black),
                                 content: SmallText(
                                     text:
                                     "Tebrikler yardım talebinizi başarıyla ilettiniz.",
@@ -109,19 +111,19 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                           },
                         );
                       },
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.send_sharp,
                             size: 25,
-                            color: Colors.red,
+                            color: Colors.black,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 10,
                           ),
                           SmallText(
-                              text: "Gönder", color: Colors.red)
+                              text: "Gönder", color: Colors.black)
                         ],
                       ),
                     ),

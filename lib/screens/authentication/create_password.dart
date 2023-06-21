@@ -1,11 +1,7 @@
-import 'package:chat_by_me/services/auth.dart';
-import 'package:chat_by_me/screens/authentication/register.dart';
-import 'package:chat_by_me/screens/home/navigation_bar.dart';
 import 'package:chat_by_me/widgets/general/text/headerText.dart';
 import 'package:chat_by_me/widgets/general/text/smallText.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/user.dart';
 import '../../widgets/general/text/largeText.dart';
 import 'login.dart';
 
@@ -22,6 +18,7 @@ class CreatePassword extends StatelessWidget {
   final codeController = TextEditingController();
   final passwordController = TextEditingController();
   final passwordAgainController = TextEditingController();
+
   CreatePassword({super.key});
 
   @override
@@ -50,7 +47,8 @@ class CreatePassword extends StatelessWidget {
                   fillColor: Colors.white,
                 ),
               ),
-              const SizedBox(height: 20.0),TextFormField(
+              const SizedBox(height: 20.0),
+              TextFormField(
                 controller: passwordController,
                 decoration: InputDecoration(
                   hintText: 'Yeni Şifre',
@@ -62,7 +60,8 @@ class CreatePassword extends StatelessWidget {
                   fillColor: Colors.white,
                 ),
               ),
-              const SizedBox(height: 20.0), TextFormField(
+              const SizedBox(height: 20.0),
+              TextFormField(
                 controller: passwordAgainController,
                 decoration: InputDecoration(
                   hintText: 'Yeni Şifre Tekrar',
@@ -78,25 +77,24 @@ class CreatePassword extends StatelessWidget {
               // Şifre Alanı
               Container(
                 margin: const EdgeInsets.only(bottom: 20),
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
                   onPressed: () {
-                    if(codeController.text=='') {
+                    if (codeController.text == '') {
                       showErrorMessage(context, 'kodu giriniz');
                       return;
                     }
-                    if(codeController.text!='123456') {
+                    if (codeController.text != '123456') {
                       showErrorMessage(context, 'hatali kod');
                       return;
                     }
-                    if(passwordAgainController.text==''&&passwordController.text=='') {
+                    if (passwordAgainController.text == '' &&
+                        passwordController.text == '') {
                       showErrorMessage(context, 'sifre bos birakilamaz');
                       return;
                     }
-                    if(passwordAgainController.text!=passwordController.text) {
+                    if (passwordAgainController.text !=
+                        passwordController.text) {
                       showErrorMessage(context, 'sifreler uyusmuyor');
                       return;
                     }
@@ -106,7 +104,7 @@ class CreatePassword extends StatelessWidget {
                         builder: (context) => LoginPage(),
                       ),
                     );
-                    },
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFFFFC600),
                   ),

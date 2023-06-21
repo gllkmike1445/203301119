@@ -99,7 +99,7 @@ class _PhotoListPageState extends State<PhotoListPage> {
                   fit: BoxFit.cover,
                 ),
                 if (isSelected)
-                  Positioned(
+                  const Positioned(
                     top: 8,
                     right: 8,
                     child: Icon(

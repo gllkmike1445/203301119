@@ -15,41 +15,6 @@ class _ContactsPageState extends State<ContactsPage> {
         email: 'ahmet@example.com',
         password: '123456',
         phone: '1234567890'),
-    UserModel(
-        name: 'Mehmet',
-        email: 'mehmet@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Ayşe',
-        email: 'ayse@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Fatma',
-        email: 'fatma@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Ali',
-        email: 'ali@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Veli',
-        email: 'veli@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Can',
-        email: 'can@example.com',
-        password: '123456',
-        phone: '1234567890'),
-    UserModel(
-        name: 'Emre',
-        email: 'emre@example.com',
-        password: '123456',
-        phone: '1234567890'),
   ];
 
   void editContact(BuildContext context, UserModel contact) {

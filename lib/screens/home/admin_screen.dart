@@ -18,20 +18,21 @@ class _AdminScreenState extends State<AdminScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MediumText(
-            text: "Yönetim Paneli", color: Colors.red),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        centerTitle: true,
+        title: const MediumText(text: "Yönetim Paneli", color: Colors.white),
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              LargeText(
-                  text: "Yardım ve Destek Talepleri",),
-              SizedBox(
+              const LargeText(
+                text: "Yardım ve Destek Talepleri",
+              ),
+              const SizedBox(
                 height: 25,
               ),
               SizedBox(
@@ -41,14 +42,13 @@ class _AdminScreenState extends State<AdminScreen> {
                   builder: (context, AsyncSnapshot<List<HelpModel>> snap) {
                     if (snap.hasData) {
                       return ListView.builder(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           itemCount: snap.data!.length,
                           itemBuilder: (context, index) {
                             return Container(
-                              margin: EdgeInsets.only(bottom: 15),
+                              margin: const EdgeInsets.only(bottom: 15),
                               decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.red),
+                                  border: Border.all(color: Colors.black),
                                   borderRadius: BorderRadius.circular(10)),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -56,31 +56,30 @@ class _AdminScreenState extends State<AdminScreen> {
                                   children: [
                                     Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Column(
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                           children: [
                                             SmallText(
                                                 text: snap.data![index].name
                                                     .toString(),
-                                                color: Colors.red),
+                                                color: Colors.black),
                                             SmallText(
                                                 text: snap.data![index].mail
                                                     .toString(),
-                                                color: Colors.red),
+                                                color: Colors.black),
                                           ],
                                         ),
                                         SmallText(
                                             text: snap.data![index].subject
                                                 .toString(),
-                                            color: Colors.red
-                                        ),
+                                            color: Colors.black),
                                       ],
                                     ),
-                                    Divider(
-                                      color: Colors.red,
+                                    const Divider(
+                                      color: Colors.black,
                                       thickness: 1,
                                     ),
                                     Padding(
@@ -88,8 +87,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                       child: SmallText(
                                           text: snap.data![index].message
                                               .toString(),
-                                          color:
-                                          Colors.red),
+                                          color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -97,7 +95,7 @@ class _AdminScreenState extends State<AdminScreen> {
                             );
                           });
                     } else {
-                      return Text("Veri Yok");
+                      return const Text("Veri Yok");
                     }
                   },
                 ),

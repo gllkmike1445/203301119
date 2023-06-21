@@ -1,6 +1,6 @@
 import 'package:chat_by_me/screens/home/editContact.dart';
 import 'package:flutter/material.dart';
-import 'package:chat_by_me/services/Globals.dart' as globals;
+import 'package:chat_by_me/services/globals.dart' as globals;
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -35,7 +35,7 @@ class _ChatPageState extends State<ChatPage> {
         backgroundColor: const Color(0xFFFFC600),
         title: Text(
           globals.user.name,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(
@@ -87,42 +87,61 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget _buildMessage(WhatsAppMessage message) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 16.0),
-            child: const CircleAvatar(
-              backgroundColor: Color(0xFFFFC600),
-              child: Text('M'),
+    globals.fetchInfo();
+    return IntrinsicWidth(
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3), // shadow position
             ),
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(message.senderName,
-                    style:
-                    const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-                Container(
-                  margin: const EdgeInsets.only(top: 5.0),
-                  child: Text(message.message),
-                ),
-              ],
+          ],
+        ),
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 16.0),
+              child: CircleAvatar(
+                child: Image.network(globals.user?.image),
+              ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    message.senderName,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 5.0),
+                    child: Text(message.message),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildTextComposer() {
     return IconTheme(
-      data: IconThemeData(color: Colors.amber),
+      data: const IconThemeData(color: Colors.amber),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(
           children: [
             Flexible(
@@ -130,18 +149,18 @@ class _ChatPageState extends State<ChatPage> {
                 controller: _textController,
                 onChanged: (text) {
                   setState(() {
-                    _isComposing = text.length > 0;
+                    _isComposing = text.isNotEmpty;
                   });
                 },
                 onFieldSubmitted: _handleSubmitted,
                 decoration:
-                InputDecoration.collapsed(hintText: "Bir mesaj yazın"),
+                const InputDecoration.collapsed(hintText: "Bir mesaj yazın"),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 4.0),
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
-                icon: Icon(Icons.send),
+                icon: const Icon(Icons.send),
                 onPressed: _isComposing
                     ? () => _handleSubmitted(_textController.text)
                     : null,
