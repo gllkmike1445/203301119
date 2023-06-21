@@ -3,7 +3,7 @@ import 'package:chat_by_me/screens/authentication/resetPassword.dart';
 import 'package:chat_by_me/screens/home/admin_settings_screen.dart';
 import 'package:chat_by_me/screens/home/changeBackground.dart';
 import 'package:chat_by_me/screens/home/help_screen.dart';
-import 'package:chat_by_me/screens/home/privacy.dart';
+import 'package:chat_by_me/screens/home/terms_screen.dart';
 import 'package:chat_by_me/services/auth.dart';
 import 'package:chat_by_me/services/globals.dart' as globals;
 import 'package:firebase_auth/firebase_auth.dart';
@@ -74,18 +74,6 @@ class ProfilePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const PrivacyPage()));
-              },
-              leading: const Icon(Icons.lock),
-              title: const Text('Gizlilik'),
-              subtitle: const Text('Hesabım özel'),
-            ),
-            const Divider(),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
                         builder: (context) => const ChangePasswordPage()));
               },
               leading: const Icon(Icons.security),
@@ -133,6 +121,15 @@ class ProfilePage extends StatelessWidget {
               leading: const Icon(Icons.settings),
               title: const Text('Arka Plan Ayarlari'),
               subtitle: const Text("Random Resimler"),
+            ),
+            const Divider(),
+            ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TermsAndConditionsScreen()));
+              },
+              leading: const Icon(Icons.security_sharp),
+              title: const Text('Şartlar ve Koşullar'),
             ),
             const Divider(),
             ListTile(
