@@ -91,7 +91,6 @@ try{
 catch(error){
   userModel = UserModel(name: auth.currentUser!.displayName.toString(), email: auth.currentUser!.email.toString(), password: 'googlesignin', phone: auth.currentUser!.phoneNumber.toString(),image: auth.currentUser!.photoURL.toString());
 }
-    print(   'auth.currentUser?.displayName.toString()');
     return userModel;
   }
 
