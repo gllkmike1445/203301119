@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import '../models/user.dart';
 
-class Auth{
+class Auth {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -20,11 +21,11 @@ class Auth{
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
     final GoogleSignInAccount? googleSignInAccount =
-    await googleSignIn.signIn();
+        await googleSignIn.signIn();
 
     if (googleSignInAccount != null) {
       final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount.authentication;
+          await googleSignInAccount.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
@@ -33,7 +34,7 @@ class Auth{
 
       try {
         final UserCredential userCredential =
-        await auth.signInWithCredential(credential);
+            await auth.signInWithCredential(credential);
 
         user = userCredential.user;
 
@@ -43,7 +44,8 @@ class Auth{
             name: user.displayName.toString(),
             email: user.email.toString(),
             password: 'googlesignin',
-            backgroundImage: 'https://i.pinimg.com/550x/f4/15/ce/f415ce5c6d49015f8194fff60b8392a7.jpg',
+            backgroundImage:
+                'https://i.pinimg.com/550x/f4/15/ce/f415ce5c6d49015f8194fff60b8392a7.jpg',
             phone: user.phoneNumber.toString(),
             image: user.photoURL.toString(),
           );
@@ -67,8 +69,8 @@ class Auth{
     return user;
   }
 
-  Future<User?> createUser(String email, String password,
-      UserModel userModel) async {
+  Future<User?> createUser(
+      String email, String password, UserModel userModel) async {
     var user = await auth.createUserWithEmailAndPassword(
         email: email, password: password);
     print(userModel.toString());
@@ -80,18 +82,27 @@ class Auth{
   }
 
   Future<UserModel> getUser() async {
-    CollectionReference ref = firestore.collection("users");
-    String uid = auth.currentUser!.uid;
-    UserModel userModel;
-    var document = ref.doc(uid);
-    var response = await document.get();
-try{
-  userModel = UserModel.fromJson(response.data() as dynamic);
-}
-catch(error){
-  userModel = UserModel(name: auth.currentUser!.displayName.toString(), email: auth.currentUser!.email.toString(), password: 'googlesignin', phone: auth.currentUser!.phoneNumber.toString(),image: auth.currentUser!.photoURL.toString());
-}
-    return userModel;
+    if (auth.currentUser != null) {
+      CollectionReference ref = firestore.collection("users");
+      String uid = auth.currentUser!.uid;
+      UserModel userModel;
+      var document = ref.doc(uid);
+      var response = await document.get();
+      try {
+        userModel = UserModel.fromJson(response.data() as dynamic);
+      } catch (error) {
+        userModel = UserModel(
+          name: auth.currentUser!.displayName.toString(),
+          email: auth.currentUser!.email.toString(),
+          password: 'googlesignin',
+          phone: auth.currentUser!.phoneNumber.toString(),
+          image: auth.currentUser!.photoURL.toString(),
+        );
+      }
+      return userModel;
+    } else {
+      throw Exception("Kullanıcı oturumu açmamış.");
+    }
   }
 
   Future<void> signOut() async {
